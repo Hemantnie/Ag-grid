@@ -1,5 +1,6 @@
 <input #input
         [(ngModel)]="asyncSelected"
+        (blur)="Onblur($event)"
         container="body"
        [typeahead]="dataSource"
        (typeaheadOnSelect)="typeaheadOnSelect($event)"

@@ -72,6 +72,7 @@ export class TypeaheadComponent implements ICellRendererAngularComp, OnDestroy {
 
   agInit(params: any): void {
     this.params = params;
+    this.asyncSelected=params.data.typeahead;
   }
 
   ngOnDestroy() {
@@ -114,9 +115,8 @@ export class TypeaheadComponent implements ICellRendererAngularComp, OnDestroy {
     
   }
 
-  onKey(event){
-    this.input +=event.target.value;
-    console.log(event.target.value);
+  Onblur(e){
+    this.params.setValue(e.target.value);
   }
 
 }
