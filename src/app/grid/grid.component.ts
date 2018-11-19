@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActionComponent } from '../grid-components/action/action.component';
 import { DropdownComponent } from '../grid-components/dropdown/dropdown.component';
 import { TypeaheadComponent } from '../grid-components/typeahead/typeahead.component';
+import { DateComponent } from '../grid-components/date/date.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-grid',
@@ -27,16 +29,16 @@ export class GridComponent implements OnInit {
   ngOnInit() {
     this.columnDefs = [
       { headerName: 'Make', field: 'make' },
-      { headerName: 'Model', field: 'model' },
       { headerName: 'Typeahead', field: 'typeahead',cellRenderer:"typeahead" },
       { headerName: 'DropAndSet', field: 'set',cellRenderer:"dropdown" },
+      { headerName: 'Date', field: 'date',cellRenderer:"dateRender"},
       { headerName: 'Actions', field: 'action',cellRenderer:"actionRender" }
     ];
 
     this.rowData = [
-      { make: 'Toyota', model: 'Celica', price: 35000,set:'EU' },
-      { make: 'Ford', model: 'Mondeo', price: 32000,set:'EU' },
-      { make: 'Porsche', model: 'Boxter', price: 72000,set:'EU' }
+      { make: 'Toyota', model: 'Celica', price: 35000 ,date:moment(new Date()).format('L')},
+      { make: 'Ford', model: 'Mondeo', price: 32000,set:'EU',date:moment(new Date()).format('L') },
+      { make: 'Porsche', model: 'Boxter', price: 72000,set:'EU',date:moment(new Date()).format('L') }
     ];
 
 
@@ -46,7 +48,8 @@ export class GridComponent implements OnInit {
       // squareRenderer: SquareRenderer,
       actionRender:ActionComponent,
       dropdown:DropdownComponent,
-      typeahead:TypeaheadComponent
+      typeahead:TypeaheadComponent,
+      dateRender:DateComponent
       
     };
 
@@ -55,7 +58,6 @@ export class GridComponent implements OnInit {
   onGridReady(params) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-
     params.api.sizeColumnsToFit();
   }
 

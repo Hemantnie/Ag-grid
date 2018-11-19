@@ -25,11 +25,13 @@ export class ActionComponent implements ICellRendererAngularComp, OnDestroy {
   displayROwData(){
     console.log("Make",this.params);
 
-    console.log("Make",this.params.data.make);
-    console.log("Model",this.params.data.model);
-    console.log("Price",this.params.data.price); 
+    // console.log("Make",this.params.data.make);
+    // console.log("Model",this.params.data.model);
+    // console.log("Price",this.params.data.price); 
     console.log("set",this.params.data.set); 
     console.log("typeahead",this.params.data.typeahead); 
+    console.log("date",this.params.data.date); 
+
 
   }
 

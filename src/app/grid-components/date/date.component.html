@@ -1,0 +1,2 @@
+<input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [outsideClick]="true" (bsValueChange)="onValueChange($event)"style="display: none">
+<span>{{bsRangeValue}}<i class="far fa-calendar-alt" style="padding-left: 5%;cursor: pointer;" (click)="dp.show()"></i></span>
